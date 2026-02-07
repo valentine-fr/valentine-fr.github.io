@@ -154,7 +154,7 @@ Happy anniversary ❤️
       const heart = document.createElement("div");
       heart.classList.add("heart");
 
-      const hearts = ["💗", "💕", "❤️", "💖"];
+      const hearts = ["💗","💕","❤️","💖"];
       heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
 
       heart.style.left = Math.random() * 100 + "vw";
@@ -165,9 +165,7 @@ Happy anniversary ❤️
 
       document.body.appendChild(heart);
 
-      setTimeout(() => {
-        heart.remove();
-      }, duration * 1000);
+      setTimeout(() => heart.remove(), duration * 1000);
     }
 
     setInterval(createHeart, 300);
