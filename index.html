@@ -1,84 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine Date</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #FFC0CB; /* Light Pink */
-            color: white;
-            margin: 0;
-            padding: 20px;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .title {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            color: #ff1493;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        .button-container {
-            display: flex;
-            gap: 20px;
-        }
-        .btn {
-            font-size: 20px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        .yes {
-            background-color: #ff69b4; /* Hot Pink */
-            color: white;
-        }
-        .no {
-            background-color: red;
-            color: white;
-            animation: shake 0.3s infinite;
-        }
-        .btn:hover {
-            opacity: 0.8;
-        }
-        @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Anniversary ❤️</title>
+
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      text-align: center;
+      background: linear-gradient(to bottom, #ffd1dc, #fff0f5);
+      color: #7a1f3d;
+      margin: 0;
+      padding: 20px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .title {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #b1004b;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .subtitle {
+      font-size: 20px;
+      max-width: 700px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      font-size: 20px;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s ease;
+      font-family: "Georgia", serif;
+    }
+
+    .yes {
+      background-color: #ff4d88;
+      color: white;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
+    }
+
+    .no {
+      background-color: #b1004b;
+      color: white;
+      animation: shake 0.3s infinite;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 25px;
+      animation: float 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="title">Be My Valentine Date</div>
-    <div class="button-container">
-        <button class="btn yes" id="yesBtn" onclick="redirect()">Yes</button>
-        <button class="btn no" id="noBtn" onclick="growYes()">No</button>
-    </div>
+  <div class="title">Happy Anniversary, My Love ❤️</div>
 
-    <script>
-        let yesButton = document.getElementById("yesBtn");
-        let size = 20;
+  <div class="subtitle">
+    I know this isn’t the biggest gift in the world…  
+    but I wanted to make something small and sweet just for you.
+    <br><br>
+    Click the button and read what I wrote for you 🥺💌
+  </div>
 
-        function growYes() {
-            size += 10;
-            yesButton.style.fontSize = size + "px";
-            yesButton.style.padding = (size / 2) + "px";
-        }
+  <div class="button-container">
+    <button class="btn yes" id="yesBtn" onclick="redirect()">Open It 💌</button>
+    <button class="btn no" id="noBtn" onclick="growYes()">No 😭</button>
+  </div>
 
-        function redirect() {
-            window.location.href = "valentine.html"; // Redirect to second page
-        }
-    </script>
+  <script>
+    let yesButton = document.getElementById("yesBtn");
+    let size = 20;
+
+    function growYes() {
+      size += 8;
+      yesButton.style.fontSize = size + "px";
+      yesButton.style.padding = (size / 2) + "px";
+    }
+
+    function redirect() {
+      window.location.href = "valentine.html";
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗";
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 350);
+  </script>
 </body>
 </html>
