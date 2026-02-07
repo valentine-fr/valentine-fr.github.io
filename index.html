@@ -39,7 +39,7 @@
     .subtitle {
       font-size: clamp(16px, 4vw, 22px);
       max-width: 750px;
-      margin-bottom: 25px;
+      margin-bottom: 40px;
       line-height: 1.8;
     }
 
@@ -72,12 +72,6 @@
       background-color: #b1004b;
       color: white;
       animation: shake 0.3s infinite;
-    }
-
-    .music {
-      background-color: #ff85b3;
-      color: white;
-      box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
     }
 
     .btn:hover {
@@ -118,18 +112,14 @@
       Hey Macnto… 🥺💗 <br><br>
       I made this little page just for you because you mean so much to me.
       <br><br>
-      Press play first… then open your letter 💌
+      Click below to open your letter 💌
     </div>
 
     <div class="button-container">
-      <button class="btn music" onclick="playMusic()">Play Music 🎶</button>
       <button class="btn yes" id="yesBtn" onclick="redirect()">Open Your Letter 💌</button>
       <button class="btn no" id="noBtn" onclick="growYes()">No 😭</button>
     </div>
   </div>
-
-  <!-- Put your music file in the same folder -->
-  <audio id="song" src="song.mp3"></audio>
 
   <script>
     let yesButton = document.getElementById("yesBtn");
@@ -138,4 +128,28 @@
     function growYes() {
       size += 6;
       yesButton.style.fontSize = size + "px";
-      yesButton.s
+      yesButton.style.padding = (size / 1.8) + "px";
+    }
+
+    function redirect() {
+      window.location.href = "valentine.html";
+    }
+
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      const hearts = ["💗","💕","❤️","💖"];
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 25 + 15 + "px";
+      const duration = Math.random() * 3 + 4;
+      heart.style.animationDuration = duration + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), duration*1000);
+    }
+
+    setInterval(createHeart, 250);
+  </script>
+</body>
+</html>
