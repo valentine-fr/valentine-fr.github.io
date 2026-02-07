@@ -1,32 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine Confirmed</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #FFC0CB; /* Light Pink */
-            color: white;
-            margin: 0;
-            padding: 20px;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .message {
-            font-size: 40px;
-            font-weight: bold;
-            color: #ff1493;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Iqlas ❤️</title>
+
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background: linear-gradient(to bottom, #ffe6ee, #fff0f5);
+      color: #4b1c2d;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .paper {
+      background: #fffafc;
+      border: 2px solid #e8a1b8;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+      line-height: 2;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: clamp(30px, 6vw, 50px);
+      color: #b1004b;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: clamp(14px, 3vw, 18px);
+      font-style: italic;
+      margin-top: 0;
+      color: #7a1f3d;
+    }
+
+    .letter {
+      margin-top: 25px;
+      font-size: clamp(16px, 4vw, 20px);
+      white-space: pre-line;
+    }
+
+    .signature {
+      margin-top: 35px;
+      font-size: clamp(16px, 4vw, 22px);
+      font-weight: bold;
+      text-align: right;
+      color: #b1004b;
+    }
+
+    .seal {
+      text-align: center;
+      font-size: 55px;
+      margin-top: 15px;
+    }
+
+    /* Floating hearts background */
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 25px;
+      animation: floatUp linear forwards;
+      opacity: 0.7;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-120vh) scale(1.4);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="message">🎀 See you at 10 o’clock bbg 🎀</div>
+
+  <div class="paper">
+    <h1>To My Mcney ❤️</h1>
+    <h2>Happy Anniversary Iqlas</h2>
+
+    <div class="letter">
+Hey Macnto,
+
+Happy anniversary my love ❤️
+
+I just want to say thank you.
+Thank you for being in my life, for loving me, and for always being someone I can think about and smile.
+
+You’re honestly the best thing that ever happened to me.
+I love the way you talk, the way you care, the way you make everything feel better just by being you.
+
+Even when life is stressful, even when I’m tired, even when things don’t go perfect…
+you’re still the person I want.
+You’re still my peace.
+
+I don’t want anyone else.
+Iqlas, you’re my girl, my heart, my favorite person.
+And I’m so proud to call you mine.
+
+I promise to keep loving you, choosing you, and being there for you.
+Not just today, but always.
+
+I love you so much Mcney.
+Happy anniversary ❤️
+    </div>
+
+    <div class="signature">
+      Always yours, <br>
+      ❤️ Hanad
+    </div>
+
+    <div class="seal">💌</div>
+  </div>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+
+      const hearts = ["💗", "💕", "❤️", "💖"];
+      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 25 + 15 + "px";
+
+      const duration = Math.random() * 3 + 4;
+      heart.style.animationDuration = duration + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, duration * 1000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+
 </body>
 </html>
