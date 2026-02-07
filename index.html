@@ -3,142 +3,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Anniversary ❤️</title>
+  <title>For You ❤️</title>
 
   <style>
     body {
       font-family: "Georgia", serif;
-      text-align: center;
-      background: linear-gradient(to bottom, #ffd1dc, #fff0f5);
-      color: #7a1f3d;
+      background: #fff0f5;
+      color: #4b1c2d;
       margin: 0;
-      padding: 20px;
-      height: 100vh;
+      padding: 30px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      min-height: 100vh;
     }
 
-    .title {
-      font-size: 48px;
-      font-weight: bold;
-      margin-bottom: 15px;
+    .paper {
+      background: #fffafc;
+      border: 2px solid #e8a1b8;
+      border-radius: 20px;
+      padding: 45px;
+      max-width: 850px;
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+      line-height: 2;
+      position: relative;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 45px;
       color: #b1004b;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+      margin-bottom: 5px;
     }
 
-    .subtitle {
+    h2 {
+      text-align: center;
+      font-size: 18px;
+      font-style: italic;
+      margin-top: 0;
+      color: #7a1f3d;
+    }
+
+    .poem {
+      margin-top: 25px;
       font-size: 20px;
-      max-width: 700px;
-      margin-bottom: 40px;
-      line-height: 1.8;
+      white-space: pre-line;
     }
 
-    .button-container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn {
-      font-size: 20px;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
+    .signature {
+      margin-top: 40px;
+      font-size: 22px;
       font-weight: bold;
-      transition: 0.3s ease;
-      font-family: "Georgia", serif;
+      text-align: right;
+      color: #b1004b;
     }
 
-    .yes {
-      background-color: #ff4d88;
-      color: white;
-      box-shadow: 0px 6px 15px rgba(0,0,0,0.2);
-    }
-
-    .no {
-      background-color: #b1004b;
-      color: white;
-      animation: shake 0.3s infinite;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      50% { transform: translateX(5px); }
-      75% { transform: translateX(-5px); }
-      100% { transform: translateX(0); }
-    }
-
-    .heart {
+    .seal {
       position: absolute;
-      font-size: 25px;
-      animation: float 6s linear infinite;
-      opacity: 0.8;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(100vh); opacity: 1; }
-      100% { transform: translateY(-10vh); opacity: 0; }
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 60px;
     }
   </style>
 </head>
 
 <body>
-  <div class="title">Happy Anniversary, My Love ❤️</div>
+  <div class="paper">
+    <h1>To My Favorite Person</h1>
+    <h2>(Happy Anniversary, my love ❤️)</h2>
 
-  <div class="subtitle">
-    I know this isn’t the biggest gift in the world…  
-    but I wanted to make something small and sweet just for you.
-    <br><br>
-    Click the button and read what I wrote for you 🥺💌
+    <div class="poem">
+My dearest,
+
+If love were written in ink,
+then every page of my life would have your name on it.
+
+I do not love you loudly just for the world to hear,
+I love you quietly… in the way my heart feels safe when you're near.
+
+Your laugh has become my favorite sound.
+Your presence feels like home.
+And even on the days when life is heavy,
+you still make my world feel soft.
+
+If this were the old days, in the year 1840,
+I would write letters by candlelight,
+and wait weeks just to hear your voice again.
+
+But today I don’t need to wait.
+I have you.
+And I still choose you.
+
+Over and over.
+
+Happy anniversary, my love.
+    </div>
+
+    <div class="signature">
+      Forever yours, <br>
+      ❤️ Hanad
+    </div>
+
+    <div class="seal">💌</div>
   </div>
-
-  <div class="button-container">
-    <button class="btn yes" id="yesBtn" onclick="redirect()">Open It 💌</button>
-    <button class="btn no" id="noBtn" onclick="growYes()">No 😭</button>
-  </div>
-
-  <script>
-    let yesButton = document.getElementById("yesBtn");
-    let size = 20;
-
-    function growYes() {
-      size += 8;
-      yesButton.style.fontSize = size + "px";
-      yesButton.style.padding = (size / 2) + "px";
-    }
-
-    function redirect() {
-      window.location.href = "valentine.html";
-    }
-
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "💗";
-
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-      heart.style.fontSize = (Math.random() * 20 + 15) + "px";
-
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
-    }
-
-    setInterval(createHeart, 350);
-  </script>
 </body>
 </html>
