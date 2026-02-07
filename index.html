@@ -39,7 +39,7 @@
     .subtitle {
       font-size: clamp(16px, 4vw, 22px);
       max-width: 750px;
-      margin-bottom: 40px;
+      margin-bottom: 25px;
       line-height: 1.8;
     }
 
@@ -48,6 +48,7 @@
       gap: 15px;
       flex-wrap: wrap;
       justify-content: center;
+      margin-top: 15px;
     }
 
     .btn {
@@ -73,6 +74,12 @@
       animation: shake 0.3s infinite;
     }
 
+    .music {
+      background-color: #ff85b3;
+      color: white;
+      box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
+    }
+
     .btn:hover {
       transform: scale(1.05);
       opacity: 0.9;
@@ -86,7 +93,6 @@
       100% { transform: translateX(0); }
     }
 
-    /* Floating hearts */
     .heart {
       position: absolute;
       bottom: -50px;
@@ -98,14 +104,8 @@
     }
 
     @keyframes floatUp {
-      from {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-120vh) scale(1.4);
-        opacity: 0;
-      }
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-120vh) scale(1.4); opacity: 0; }
     }
   </style>
 </head>
@@ -117,16 +117,19 @@
     <div class="subtitle">
       Hey Macnto… 🥺💗 <br><br>
       I made this little page just for you because you mean so much to me.
-      I just want you to know how much I love you and how grateful I am for you.
       <br><br>
-      Click below… I wrote something from my heart 💌
+      Press play first… then open your letter 💌
     </div>
 
     <div class="button-container">
+      <button class="btn music" onclick="playMusic()">Play Music 🎶</button>
       <button class="btn yes" id="yesBtn" onclick="redirect()">Open Your Letter 💌</button>
       <button class="btn no" id="noBtn" onclick="growYes()">No 😭</button>
     </div>
   </div>
+
+  <!-- Put your music file in the same folder -->
+  <audio id="song" src="song.mp3"></audio>
 
   <script>
     let yesButton = document.getElementById("yesBtn");
@@ -135,34 +138,4 @@
     function growYes() {
       size += 6;
       yesButton.style.fontSize = size + "px";
-      yesButton.style.padding = (size / 1.8) + "px";
-    }
-
-    function redirect() {
-      window.location.href = "valentine.html";
-    }
-
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-
-      const hearts = ["💗", "💕", "❤️", "💖"];
-      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 25 + 15 + "px";
-
-      const duration = Math.random() * 3 + 4;
-      heart.style.animationDuration = duration + "s";
-
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, duration * 1000);
-    }
-
-    setInterval(createHeart, 250);
-  </script>
-</body>
-</html>
+      yesButton.s
