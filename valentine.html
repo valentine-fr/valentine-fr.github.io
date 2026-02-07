@@ -68,24 +68,12 @@
       margin-top: 15px;
     }
 
-    .btn {
-      display: block;
-      margin: 25px auto 0;
-      font-size: 18px;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
+    .extra-love {
+      margin-top: 30px;
+      font-size: clamp(16px, 4vw, 20px);
       font-weight: bold;
-      background-color: #ff4d88;
-      color: white;
-      transition: 0.3s ease;
-      font-family: "Georgia", serif;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
+      color: #ff2d7a;
+      line-height: 1.7;
     }
 
     .heart {
@@ -144,9 +132,17 @@ Happy anniversary ❤️
 
     <div class="seal">💌</div>
 
-    <button class="btn" onclick="window.location.href='surprise.html'">
-      One more thing... 💝
-    </button>
+    <!-- One More Thing Section -->
+    <div class="extra-love">
+      I love you, I love you, I love you… ❤️<br>
+      I love you more than words, I love you more than the stars, I love you more than anything in this world… 💖<br>
+      I love you Macnto, I love you Mcney, I love you endlessly, I love you forever… 💗<br>
+      Every heartbeat says I love you, every thought whispers I love you, every smile reminds me I love you… 💕<br>
+      I love you today, I love you tomorrow, I love you always… ❤️💌<br><br>
+      I love you, I love you, I love you again and again…<br>
+      My Macnto, my Mcney, my heart belongs to you, my soul belongs to you… 💖<br>
+      Happy anniversary, my love! I love you more than I could ever say. ❤️
+    </div>
   </div>
 
   <script>
@@ -164,11 +160,10 @@ Happy anniversary ❤️
       heart.style.animationDuration = duration + "s";
 
       document.body.appendChild(heart);
-
       setTimeout(() => heart.remove(), duration * 1000);
     }
 
-    setInterval(createHeart, 300);
+    setInterval(createHeart, 250);
   </script>
 
 </body>
