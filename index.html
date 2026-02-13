@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Valentine’s Day Iqlas ❤️</title>
-
   <style>
     body {
       font-family: "Georgia", serif;
-      text-align: center;
       margin: 0;
-      padding: 20px;
-      min-height: 100vh;
+      padding: 0;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      min-height: 100vh;
       overflow: hidden;
       background: linear-gradient(135deg, #e6ccff, #ffe6f0);
       position: relative;
@@ -23,18 +20,19 @@
 
     .content {
       z-index: 2;
-      max-width: 900px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.85);
+      text-align: center;
+      padding: 25px;
+      background: rgba(255,255,255,0.85);
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      max-width: 900px;
     }
 
     .title {
-      font-size: clamp(28px, 6vw, 50px);
+      font-size: clamp(28px, 6vw, 48px);
+      color: #b1004b;
       font-weight: bold;
       margin-bottom: 15px;
-      color: #b1004b;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
     }
 
@@ -49,7 +47,6 @@
       display: flex;
       gap: 20px;
       justify-content: center;
-      margin-top: 15px;
       flex-wrap: wrap;
     }
 
@@ -60,8 +57,8 @@
       border-radius: 14px;
       cursor: pointer;
       font-weight: bold;
-      transition: 0.3s ease;
       font-family: "Georgia", serif;
+      transition: 0.3s ease;
       position: relative;
     }
 
@@ -74,17 +71,10 @@
     .no {
       background-color: #b1004b;
       color: white;
-      position: relative;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-
-    .heart, .teddy {
+    .heart, .teddy, .words {
       position: absolute;
-      bottom: -50px;
       font-size: 25px;
       animation: floatUp linear forwards;
       opacity: 0.8;
@@ -98,68 +88,78 @@
     }
   </style>
 </head>
-
 <body>
 
-  <div class="content">
-    <div class="title">heyyy baby welcome 💖</div>
-    <div class="subtitle">
-      I know this isn’t much but I hope u like it baby so open it Macnto ❤️💗💘
-    </div>
-
-    <div class="button-container">
-      <button class="btn yes" onclick="redirect()">Open Your Letter 💌</button>
-      <button class="btn no" id="noBtn">No 😭</button>
-    </div>
+<div class="content">
+  <div class="title">heyyy baby welcome 💖</div>
+  <div class="subtitle">
+    I know this isn’t much but I hope u like it baby so open it Macnto ❤️
   </div>
 
-  <script>
-    // Redirect yes button
-    function redirect() {
-      window.location.href = "valentine.html";
-    }
+  <div class="button-container">
+    <button class="btn yes" onclick="window.location.href='valentine.html'">Open Your Letter 💌</button>
+    <button class="btn no" id="noBtn">No 😭</button>
+  </div>
+</div>
 
-    // Make No button run away
-    const noBtn = document.getElementById("noBtn");
-    noBtn.addEventListener("mouseenter", () => {
-      const x = Math.random() * 60 - 30; // move horizontally
-      const y = Math.random() * 60 - 30; // move vertically
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    });
-    noBtn.addEventListener("mouseleave", () => {
-      noBtn.style.transform = `translate(0,0)`;
-    });
+<script>
+  const noBtn = document.getElementById("noBtn");
 
-    // Floating hearts
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      const hearts = ["💗","💕","❤️","💖"];
-      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 25 + 15 + "px";
-      const duration = Math.random() * 3 + 4;
-      heart.style.animationDuration = duration + "s";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), duration*1000);
-    }
+  // Make No button run randomly in all directions
+  noBtn.addEventListener("mouseenter", () => {
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    noBtn.style.position = 'absolute';
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
 
-    // Floating teddy bears with chocolates
-    function createTeddy() {
-      const teddy = document.createElement("div");
-      teddy.classList.add("teddy");
-      const teddies = ["🧸🍫","🧸💝","🧸🍫"];
-      teddy.innerHTML = teddies[Math.floor(Math.random() * teddies.length)];
-      teddy.style.left = Math.random() * 100 + "vw";
-      teddy.style.fontSize = Math.random() * 35 + 15 + "px";
-      const duration = Math.random() * 5 + 5;
-      teddy.style.animationDuration = duration + "s";
-      document.body.appendChild(teddy);
-      setTimeout(() => teddy.remove(), duration*1000);
-    }
+  // Floating hearts
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    const hearts = ["💗","💕","❤️","💖"];
+    heart.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = Math.random()*25 + 15 + "px";
+    const duration = Math.random()*3 + 4;
+    heart.style.animationDuration = duration + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), duration*1000);
+  }
 
-    setInterval(createHeart, 300);
-    setInterval(createTeddy, 2000);
-  </script>
+  // Floating teddies
+  function createTeddy() {
+    const teddy = document.createElement("div");
+    teddy.classList.add("teddy");
+    const teddies = ["🧸🍫","🧸💝","🧸🍫"];
+    teddy.innerHTML = teddies[Math.floor(Math.random()*teddies.length)];
+    teddy.style.left = Math.random()*100 + "vw";
+    teddy.style.fontSize = Math.random()*35 + 15 + "px";
+    const duration = Math.random()*5 + 5;
+    teddy.style.animationDuration = duration + "s";
+    document.body.appendChild(teddy);
+    setTimeout(() => teddy.remove(), duration*1000);
+  }
+
+  // Floating phrases
+  function createWords() {
+    const word = document.createElement("div");
+    word.classList.add("words");
+    const phrases = ["ur amazing","ur beautiful baby","happy valentines","ur my WIFEYY","i hate school","i love youu baby","hope u enjoy it"];
+    word.innerHTML = phrases[Math.floor(Math.random()*phrases.length)];
+    word.style.left = Math.random()*100 + "vw";
+    word.style.fontSize = Math.random()*25 + 15 + "px";
+    const duration = Math.random()*5 + 5;
+    word.style.animationDuration = duration + "s";
+    document.body.appendChild(word);
+    setTimeout(() => word.remove(), duration*1000);
+  }
+
+  setInterval(createHeart, 300);
+  setInterval(createTeddy, 2000);
+  setInterval(createWords, 2500);
+</script>
+
 </body>
 </html>
