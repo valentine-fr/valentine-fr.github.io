@@ -43,6 +43,12 @@
       color: #7a1f3d;
     }
 
+    .subtitle span {
+      color: #b1004b;
+      opacity: 0;
+      display: inline-block;
+    }
+
     .button-container {
       display: flex;
       gap: 20px;
@@ -92,7 +98,7 @@
 
 <div class="content">
   <div class="title">heyyy baby welcome 💖</div>
-  <div class="subtitle">
+  <div class="subtitle" id="subtitle">
     I know this isn’t much but I hope u like it baby so open it Macnto ❤️
   </div>
 
@@ -104,8 +110,25 @@
 
 <script>
   const noBtn = document.getElementById("noBtn");
+  const subtitle = document.getElementById("subtitle");
+  const text = subtitle.textContent;
+  subtitle.textContent = '';
 
-  // Make No button run randomly in all directions
+  // Random letter appear for subtitle
+  for (let i=0;i<text.length;i++){
+    const span = document.createElement('span');
+    span.textContent = text[i];
+    subtitle.appendChild(span);
+  }
+
+  const spans = subtitle.querySelectorAll('span');
+
+  spans.forEach(span => {
+    const delay = Math.random()*1000; // faster random
+    setTimeout(()=> span.style.opacity=1, delay);
+  });
+
+  // Make No button run randomly
   noBtn.addEventListener("mouseenter", () => {
     const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
     const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
@@ -142,7 +165,7 @@
     setTimeout(() => teddy.remove(), duration*1000);
   }
 
-  // Floating phrases
+  // Floating words
   function createWords() {
     const word = document.createElement("div");
     word.classList.add("words");
@@ -156,9 +179,9 @@
     setTimeout(() => word.remove(), duration*1000);
   }
 
-  setInterval(createHeart, 300);
-  setInterval(createTeddy, 2000);
-  setInterval(createWords, 2500);
+  setInterval(createHeart, 150);
+  setInterval(createTeddy, 1000);
+  setInterval(createWords, 1500);
 </script>
 
 </body>
