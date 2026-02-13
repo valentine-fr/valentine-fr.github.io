@@ -8,7 +8,6 @@
     body {
       font-family: "Georgia", serif;
       background: linear-gradient(to bottom, #ffe6ee, #fff8f0);
-      color: #4b1c2d;
       margin: 0;
       padding: 20px;
       display: flex;
@@ -21,17 +20,22 @@
 
     .paper {
       background: #fdf6e3;
-      border: 2px solid #e0d2b8;
       border-radius: 15px;
-      padding: 35px;
+      padding: 40px;
       max-width: 900px;
       width: 100%;
-      box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
       line-height: 1.8;
       position: relative;
       z-index: 2;
       font-size: clamp(16px, 4vw, 20px);
       white-space: pre-line;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(139,69,19,0.2) 0px, transparent 15px),
+        radial-gradient(circle at 70% 70%, rgba(139,69,19,0.15) 0px, transparent 12px),
+        radial-gradient(circle at 50% 50%, rgba(139,69,19,0.1) 0px, transparent 10px);
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     h1 {
@@ -47,6 +51,12 @@
       font-style: italic;
       margin-top: 0;
       color: #7a1f3d;
+    }
+
+    .letter span {
+      color: #b1004b;
+      opacity: 0;
+      display: inline-block;
     }
 
     .signature {
@@ -78,7 +88,9 @@
   <h1>To my beautiful, gorgeous, amazing girlfriend who’s also sexy ❤️</h1>
   <h2>Happy Valentine’s Day My Love 💘</h2>
 
-  <div class="letter">
+  <div class="letter" id="letter">
+my heart is an open book and you are the ink that fills every page
+
 Heyy baby sthy,
 
 I’m sorry about this Valentine 💔
@@ -101,9 +113,6 @@ You are my everything.
 
 You make me so happy, and I hope I make you just as happy as you make me.
 
-**Poem:**  
-my heart is an open book and you are the ink that fills every page
-
 I still remember the day you blushed so hard you turned red 😂❤️
 
 I love you baby.
@@ -118,6 +127,30 @@ I love youuuuuu babyyyy muah 💋❤️
 </div>
 
 <script>
+  const letter = document.getElementById("letter");
+  const text = letter.textContent;
+  letter.textContent = '';
+
+  // Display letters randomly and fast
+  for (let i = 0; i < text.length; i++) {
+    const span = document.createElement('span');
+    span.textContent = text[i];
+    letter.appendChild(span);
+  }
+
+  const spans = letter.querySelectorAll('span');
+
+  function randomAppear() {
+    spans.forEach(span => {
+      const delay = Math.random() * 1500; // faster
+      setTimeout(() => {
+        span.style.opacity = 1;
+      }, delay);
+    });
+  }
+
+  randomAppear();
+
   // Floating hearts
   function createHeart() {
     const heart = document.createElement("div");
@@ -160,9 +193,9 @@ I love youuuuuu babyyyy muah 💋❤️
     setTimeout(() => word.remove(), duration*1000);
   }
 
-  setInterval(createHeart, 300);
-  setInterval(createTeddy, 2000);
-  setInterval(createWords, 2500);
+  setInterval(createHeart, 200);
+  setInterval(createTeddy, 1500);
+  setInterval(createWords, 2000);
 </script>
 
 </body>
