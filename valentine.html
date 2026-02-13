@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>For Iqlas ❤️</title>
-
   <style>
     body {
       font-family: "Georgia", serif;
-      background: linear-gradient(to bottom, #ffe6ee, #fff0f5);
+      background: linear-gradient(to bottom, #ffe6ee, #fff8f0);
       color: #4b1c2d;
       margin: 0;
       padding: 20px;
@@ -21,37 +20,33 @@
     }
 
     .paper {
-      background: #fffafc;
-      border: 2px solid #e8a1b8;
-      border-radius: 20px;
-      padding: 30px;
+      background: #fdf6e3;
+      border: 2px solid #e0d2b8;
+      border-radius: 15px;
+      padding: 35px;
       max-width: 900px;
       width: 100%;
-      box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
-      line-height: 2;
+      box-shadow: 0px 8px 25px rgba(0,0,0,0.15);
+      line-height: 1.8;
       position: relative;
       z-index: 2;
+      font-size: clamp(16px, 4vw, 20px);
+      white-space: pre-line;
     }
 
     h1 {
       text-align: center;
-      font-size: clamp(30px, 6vw, 50px);
+      font-size: clamp(28px, 6vw, 48px);
       color: #b1004b;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     h2 {
       text-align: center;
-      font-size: clamp(14px, 3vw, 18px);
+      font-size: clamp(16px, 3vw, 20px);
       font-style: italic;
       margin-top: 0;
       color: #7a1f3d;
-    }
-
-    .letter {
-      margin-top: 25px;
-      font-size: clamp(16px, 4vw, 20px);
-      white-space: pre-line;
     }
 
     .signature {
@@ -62,38 +57,11 @@
       color: #b1004b;
     }
 
-    .seal {
-      text-align: center;
-      font-size: 55px;
-      margin-top: 15px;
-    }
-
-    .btn {
-      display: block;
-      margin: 25px auto 0;
-      font-size: 18px;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      font-weight: bold;
-      background-color: #ff4d88;
-      color: white;
-      transition: 0.3s ease;
-      font-family: "Georgia", serif;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-
-    .heart {
+    .heart, .teddy, .words {
       position: absolute;
-      bottom: -50px;
       font-size: 25px;
       animation: floatUp linear forwards;
-      opacity: 0.7;
+      opacity: 0.8;
       z-index: 1;
       pointer-events: none;
     }
@@ -104,14 +72,13 @@
     }
   </style>
 </head>
-
 <body>
 
-  <div class="paper">
-    <h1>To My Mcney ❤️</h1>
-    <h2>Happy Valentine’s Day My Love 💘</h2>
+<div class="paper">
+  <h1>To my beautiful, gorgeous, amazing girlfriend who’s also sexy ❤️</h1>
+  <h2>Happy Valentine’s Day My Love 💘</h2>
 
-    <div class="letter">
+  <div class="letter">
 Heyy baby sthy,
 
 I’m sorry about this Valentine 💔
@@ -134,8 +101,8 @@ You are my everything.
 
 You make me so happy, and I hope I make you just as happy as you make me.
 
-Baby I love you, and I love you so much.
-I hope you like this website that I made for you.
+**Poem:**  
+my heart is an open book and you are the ink that fills every page
 
 I still remember the day you blushed so hard you turned red 😂❤️
 
@@ -143,41 +110,60 @@ I love you baby.
 I’ll get you a lot of chocolate on Monday InshaAllah 🍫💗
 
 I love youuuuuu babyyyy muah 💋❤️
-    </div>
-
-    <div class="signature">
-      Always yours, <br>
-      ❤️ Hanad
-    </div>
-
-    <div class="seal">💌</div>
-
-    <button class="btn" onclick="window.location.href='surprise.html'">
-      One more thing... 💝
-    </button>
-
   </div>
 
-  <script>
-    function createHeart() {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
+  <div class="signature">
+    Always yours, ur fav macho nne boyfriend who loves you so much
+  </div>
+</div>
 
-      const hearts = ["💗","💕","❤️","💖"];
-      heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+<script>
+  // Floating hearts
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    const hearts = ["💗","💕","❤️","💖"];
+    heart.innerHTML = hearts[Math.floor(Math.random()*hearts.length)];
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = Math.random()*25 + 15 + "px";
+    const duration = Math.random()*3 + 4;
+    heart.style.animationDuration = duration + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), duration*1000);
+  }
 
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 25 + 15 + "px";
+  // Floating teddies
+  function createTeddy() {
+    const teddy = document.createElement("div");
+    teddy.classList.add("teddy");
+    const teddies = ["🧸🍫","🧸💝","🧸🍫"];
+    teddy.innerHTML = teddies[Math.floor(Math.random()*teddies.length)];
+    teddy.style.left = Math.random()*100 + "vw";
+    teddy.style.fontSize = Math.random()*35 + 15 + "px";
+    const duration = Math.random()*5 + 5;
+    teddy.style.animationDuration = duration + "s";
+    document.body.appendChild(teddy);
+    setTimeout(() => teddy.remove(), duration*1000);
+  }
 
-      const duration = Math.random() * 3 + 4;
-      heart.style.animationDuration = duration + "s";
+  // Floating words
+  function createWords() {
+    const word = document.createElement("div");
+    word.classList.add("words");
+    const phrases = ["ur amazing","ur beautiful baby","happy valentines","ur my WIFEYY","i hate school","i love youu baby","hope u enjoy it"];
+    word.innerHTML = phrases[Math.floor(Math.random()*phrases.length)];
+    word.style.left = Math.random()*100 + "vw";
+    word.style.fontSize = Math.random()*25 + 15 + "px";
+    const duration = Math.random()*5 + 5;
+    word.style.animationDuration = duration + "s";
+    document.body.appendChild(word);
+    setTimeout(() => word.remove(), duration*1000);
+  }
 
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), duration * 1000);
-    }
-
-    setInterval(createHeart, 250);
-  </script>
+  setInterval(createHeart, 300);
+  setInterval(createTeddy, 2000);
+  setInterval(createWords, 2500);
+</script>
 
 </body>
 </html>
