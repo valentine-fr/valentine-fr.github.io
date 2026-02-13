@@ -5,83 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Iqlas ❤️</title>
 <style>
-body {
-  font-family: "Georgia", serif;
-  background: linear-gradient(to bottom,#ffe6ee,#fff8f0);
-  margin:0;
-  padding:20px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-  overflow-x:hidden;
-  position:relative;
+body { font-family:"Georgia", serif; background: linear-gradient(to bottom,#ffe6ee,#fff8f0); margin:0; padding:20px; display:flex; justify-content:center; align-items:center; min-height:100vh; overflow-x:hidden; position:relative; }
+.paper { position: relative; z-index:2; max-width:900px; width:100%; padding:40px; border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,0.2); line-height:1.8; font-size:clamp(16px,4vw,20px); white-space:pre-line;
+background-color: #fdf6e3;
+background-image:
+radial-gradient(circle at 20% 25%, rgba(139,69,19,0.2) 0px, transparent 20px),
+radial-gradient(circle at 70% 60%, rgba(139,69,19,0.15) 0px, transparent 15px),
+radial-gradient(circle at 50% 50%, rgba(139,69,19,0.1) 0px, transparent 12px),
+linear-gradient(45deg, rgba(0,0,0,0.01) 1px, transparent 1px),
+linear-gradient(-45deg, rgba(0,0,0,0.01) 1px, transparent 1px);
+background-size:20px 20px,20px 20px,20px 20px,100% 100%,100% 100%;
+background-repeat:no-repeat,no-repeat,no-repeat,repeat,repeat;
 }
+h1 { text-align:center; font-size:clamp(28px,6vw,48px); color:#b1004b; margin-bottom:10px; }
+h2 { text-align:center; font-size:clamp(16px,3vw,20px); font-style:italic; margin-top:0; color:#7a1f3d; }
+.letter { color:#b1004b; margin-top:20px; opacity:0; transition:opacity 2s; }
+.signature { margin-top:35px; font-size:clamp(16px,4vw,22px); font-weight:bold; text-align:right; color:#b1004b; opacity:0; transition:opacity 2s; }
 
-.paper {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  width: 100%;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  line-height: 1.8;
-  font-size: clamp(16px, 4vw, 20px);
-  white-space: pre-line;
-  background-color: #fdf6e3;
-  background-image:
-    /* Coffee spots */
-    radial-gradient(circle at 20% 25%, rgba(139,69,19,0.2) 0px, transparent 20px),
-    radial-gradient(circle at 70% 60%, rgba(139,69,19,0.15) 0px, transparent 15px),
-    radial-gradient(circle at 50% 50%, rgba(139,69,19,0.1) 0px, transparent 12px),
-    /* Subtle paper texture */
-    linear-gradient(45deg, rgba(0,0,0,0.01) 1px, transparent 1px),
-    linear-gradient(-45deg, rgba(0,0,0,0.01) 1px, transparent 1px);
-  background-size: 20px 20px, 20px 20px, 20px 20px, 100% 100%, 100% 100%;
-  background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat;
-}
+.heart,.teddy,.words { position:absolute; font-size:25px; animation:floatUp linear forwards; opacity:0.8; z-index:1; pointer-events:none; }
 
-h1 {
-  text-align:center;
-  font-size:clamp(28px,6vw,48px);
-  color:#b1004b;
-  margin-bottom:10px;
-}
-h2 {
-  text-align:center;
-  font-size:clamp(16px,3vw,20px);
-  font-style:italic;
-  margin-top:0;
-  color:#7a1f3d;
-}
-
-.letter {
-  color:#b1004b;
-  margin-top: 20px;
-}
-
-.signature {
-  margin-top:35px;
-  font-size:clamp(16px,4vw,22px);
-  font-weight:bold;
-  text-align:right;
-  color:#b1004b;
-}
-
-.heart,.teddy,.words {
-  position:absolute;
-  font-size:25px;
-  animation:floatUp linear forwards;
-  opacity:0.8;
-  z-index:1;
-  pointer-events:none;
-}
-
-@keyframes floatUp {
-  from { transform: translateY(0) scale(1); opacity:1; }
-  to { transform: translateY(-120vh) scale(1.4); opacity:0; }
-}
+@keyframes floatUp { from{transform:translateY(0) scale(1);opacity:1;} to{transform:translateY(-120vh) scale(1.4);opacity:0;} }
 </style>
 </head>
 <body>
@@ -90,7 +33,7 @@ h2 {
 <h1>To my beautiful, gorgeous, amazing girlfriend who’s also sexy ❤️</h1>
 <h2>Happy Valentine’s Day My Love 💘</h2>
 
-<div class="letter">
+<div class="letter" id="letter">
 my heart is an open book and you are the ink that fills every page
 
 Heyy baby sthy,
@@ -123,16 +66,57 @@ I’ll get you a lot of chocolate on Monday InshaAllah 🍫💗
 I love youuuuuu babyyyy muah 💋❤️
 </div>
 
-<div class="signature">
+<div class="signature" id="signature">
 Always yours, ur fav macho nne boyfriend who loves you so much
 </div>
 </div>
 
 <script>
+// Fade-in typed effect for poem/letter
+window.addEventListener("load",()=>{
+  const letter=document.getElementById("letter");
+  const signature=document.getElementById("signature");
+  setTimeout(()=>{letter.style.opacity=1; signature.style.opacity=1;},200);
+});
+
 // Floating decorations
-function createHeart(){const heart=document.createElement("div");heart.classList.add("heart");const hearts=["💗","💕","❤️","💖"];heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];heart.style.left=Math.random()*100+"vw";heart.style.fontSize=Math.random()*25+15+"px";heart.style.animationDuration=Math.random()*3+4+"s";document.body.appendChild(heart);setTimeout(()=>heart.remove(),7000);}
-function createTeddy(){const teddy=document.createElement("div");teddy.classList.add("teddy");const teddies=["🧸🍫","🧸💝","🧸🍫"];teddy.innerHTML=teddies[Math.floor(Math.random()*teddies.length)];teddy.style.left=Math.random()*100+"vw";teddy.style.fontSize=Math.random()*35+15+"px";teddy.style.animationDuration=Math.random()*5+5+"s";document.body.appendChild(teddy);setTimeout(()=>teddy.remove(),10000);}
-function createWords(){const word=document.createElement("div");word.classList.add("words");const phrases=["ur amazing","ur beautiful baby","happy valentines","ur my WIFEYY","i hate school","i love youu baby","hope u enjoy it"];word.innerHTML=phrases[Math.floor(Math.random()*phrases.length)];word.style.left=Math.random()*100+"vw";word.style.fontSize=Math.random()*25+15+"px";word.style.animationDuration=Math.random()*5+5+"s";document.body.appendChild(word);setTimeout(()=>word.remove(),10000);}
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.classList.add("heart");
+  const hearts=["💗","💕","❤️","💖"];
+  heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=Math.random()*25+15+"px";
+  heart.style.color=['#ff4d88','#ff99cc','#e6ccff'][Math.floor(Math.random()*3)];
+  heart.style.animationDuration=Math.random()*3+4+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),7000);
+}
+
+function createTeddy(){
+  const teddy=document.createElement("div");
+  teddy.classList.add("teddy");
+  const teddies=["🧸🍫","🧸💝","🧸🍫"];
+  teddy.innerHTML=teddies[Math.floor(Math.random()*teddies.length)];
+  teddy.style.left=Math.random()*100+"vw";
+  teddy.style.fontSize=Math.random()*35+15+"px";
+  teddy.style.animationDuration=Math.random()*5+5+"s";
+  document.body.appendChild(teddy);
+  setTimeout(()=>teddy.remove(),10000);
+}
+
+function createWords(){
+  const word=document.createElement("div");
+  word.classList.add("words");
+  const phrases=["ur amazing","ur beautiful baby","happy valentines","ur my WIFEYY","i hate school","i love youu baby","hope u enjoy it"];
+  word.innerHTML=phrases[Math.floor(Math.random()*phrases.length)];
+  word.style.left=Math.random()*100+"vw";
+  word.style.fontSize=Math.random()*25+15+"px";
+  word.style.animationDuration=Math.random()*5+5+"s";
+  document.body.appendChild(word);
+  setTimeout(()=>word.remove(),10000);
+}
+
 setInterval(createHeart,150);
 setInterval(createTeddy,1500);
 setInterval(createWords,2000);
