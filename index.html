@@ -97,35 +97,15 @@ body {
   <div class="subtitle">I know this isn’t much but I hope u like it baby so open it Macnto ❤️</div>
 
   <div class="button-container">
-    <button class="btn yes" id="yesBtn">Open Your Letter 💌</button>
+    <button class="btn yes" onclick="window.location.href='valentine.html'">Open Your Letter 💌</button>
     <button class="btn no" id="noBtn">No 😭</button>
     <div id="noMessage">Aww, nice try 😘 but you can’t say no!</div>
   </div>
 </div>
 
-<!-- Audio element -->
-<audio id="valentineSong" loop>
-  <source src="romantic-song.mp3" type="audio/mpeg">
-</audio>
-
 <script>
 const noBtn = document.getElementById("noBtn");
 const noMessage = document.getElementById("noMessage");
-const yesBtn = document.getElementById("yesBtn");
-const song = document.getElementById("valentineSong");
-
-// Play music on click and navigate
-yesBtn.addEventListener("click", (e)=>{
-  e.preventDefault();
-  song.volume = 0.3;
-  song.play().then(()=>{
-    setTimeout(()=>{
-      // Pass a flag to valentine.html to continue music
-      localStorage.setItem('musicPlaying','true');
-      window.location.href='valentine.html';
-    }, 300);
-  });
-});
 
 // Run away no button + inline message
 noBtn.addEventListener("mouseenter", ()=>{
@@ -135,9 +115,10 @@ noBtn.addEventListener("mouseenter", ()=>{
   noBtn.style.left=x+'px';
   noBtn.style.top=y+'px';
 
+  // Show cute inline message
   noMessage.style.display='block';
   noMessage.style.left = x + "px";
-  noMessage.style.top = (y - 30) + "px";
+  noMessage.style.top = (y - 30) + "px"; // above button
 
   setTimeout(()=>{noMessage.style.display='none';},2500);
 });
@@ -186,5 +167,6 @@ setInterval(createHeart,150);
 setInterval(createTeddy,1000);
 setInterval(createWords,1500);
 </script>
+
 </body>
 </html>
