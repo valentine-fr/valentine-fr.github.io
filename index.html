@@ -17,6 +17,7 @@ body {
   background: linear-gradient(135deg, #e6ccff, #ffe6f0);
   position:relative;
 }
+
 .content {
   z-index:2;
   text-align:center;
@@ -25,7 +26,9 @@ body {
   border-radius:20px;
   box-shadow:0 8px 25px rgba(0,0,0,0.2);
   max-width:900px;
+  position:relative;
 }
+
 .title {
   font-size:clamp(28px,6vw,48px);
   color:#b1004b;
@@ -33,18 +36,22 @@ body {
   margin-bottom:15px;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
 }
+
 .subtitle {
   font-size:clamp(16px,4vw,22px);
   line-height:1.8;
   margin-bottom:30px;
   color:#b1004b;
 }
+
 .button-container {
   display:flex;
   gap:20px;
   justify-content:center;
   flex-wrap:wrap;
+  position:relative;
 }
+
 .btn {
   font-size:clamp(16px,4vw,20px);
   padding:14px 28px;
@@ -56,6 +63,7 @@ body {
   transition:0.3s ease;
   position:relative;
 }
+
 .yes { background-color:#ff4d88; color:white; box-shadow:0px 6px 15px rgba(0,0,0,0.2); }
 .no { background-color:#b1004b; color:white; }
 
@@ -68,6 +76,14 @@ body {
   pointer-events:none;
 }
 
+#noMessage {
+  position:absolute;
+  color:#ff4d88;
+  font-weight:bold;
+  font-size:clamp(14px,3vw,18px);
+  display:none;
+}
+
 @keyframes floatUp {
   from { transform: translateY(0) scale(1); opacity:1; }
   to { transform: translateY(-120vh) scale(1.4); opacity:0; }
@@ -78,27 +94,33 @@ body {
 
 <div class="content">
   <div class="title">heyyy baby welcome 💖</div>
-  <div class="subtitle">
-    I know this isn’t much but I hope u like it baby so open it Macnto ❤️
-  </div>
+  <div class="subtitle">I know this isn’t much but I hope u like it baby so open it Macnto ❤️</div>
 
   <div class="button-container">
     <button class="btn yes" onclick="window.location.href='valentine.html'">Open Your Letter 💌</button>
     <button class="btn no" id="noBtn">No 😭</button>
+    <div id="noMessage">Aww, nice try 😘 but you can’t say no!</div>
   </div>
 </div>
 
 <script>
 const noBtn = document.getElementById("noBtn");
+const noMessage = document.getElementById("noMessage");
 
-// Run away no button + popup text
+// Run away no button + inline message
 noBtn.addEventListener("mouseenter", ()=>{
   const x = Math.random()*(window.innerWidth-noBtn.offsetWidth);
   const y = Math.random()*(window.innerHeight-noBtn.offsetHeight);
   noBtn.style.position='absolute';
   noBtn.style.left=x+'px';
   noBtn.style.top=y+'px';
-  alert("Awww, you can’t say no 😘");
+
+  // Show cute inline message
+  noMessage.style.display='block';
+  noMessage.style.left = x + "px";
+  noMessage.style.top = (y - 30) + "px"; // above button
+
+  setTimeout(()=>{noMessage.style.display='none';},2500);
 });
 
 // Floating hearts
@@ -109,6 +131,7 @@ function createHeart(){
   heart.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
   heart.style.left=Math.random()*100+"vw";
   heart.style.fontSize=Math.random()*25+15+"px";
+  heart.style.color=['#ff4d88','#ff99cc','#e6ccff'][Math.floor(Math.random()*3)];
   heart.style.animationDuration=Math.random()*3+4+"s";
   document.body.appendChild(heart);
   setTimeout(()=>heart.remove(),7000);
@@ -144,5 +167,6 @@ setInterval(createHeart,150);
 setInterval(createTeddy,1000);
 setInterval(createWords,1500);
 </script>
+
 </body>
 </html>
