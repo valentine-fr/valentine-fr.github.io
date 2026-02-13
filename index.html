@@ -114,11 +114,17 @@ const noMessage = document.getElementById("noMessage");
 const yesBtn = document.getElementById("yesBtn");
 const song = document.getElementById("valentineSong");
 
-// Play music when she clicks "Open Your Letter"
-yesBtn.addEventListener("click", ()=>{
-  song.volume = 0.3; // soft romantic volume
-  song.play();
-  window.location.href='valentine.html'; // go to letter
+// Play music on click and navigate
+yesBtn.addEventListener("click", (e)=>{
+  e.preventDefault();
+  song.volume = 0.3;
+  song.play().then(()=>{
+    setTimeout(()=>{
+      // Pass a flag to valentine.html to continue music
+      localStorage.setItem('musicPlaying','true');
+      window.location.href='valentine.html';
+    }, 300);
+  });
 });
 
 // Run away no button + inline message
@@ -129,10 +135,9 @@ noBtn.addEventListener("mouseenter", ()=>{
   noBtn.style.left=x+'px';
   noBtn.style.top=y+'px';
 
-  // Show cute inline message
   noMessage.style.display='block';
   noMessage.style.left = x + "px";
-  noMessage.style.top = (y - 30) + "px"; // above button
+  noMessage.style.top = (y - 30) + "px";
 
   setTimeout(()=>{noMessage.style.display='none';},2500);
 });
@@ -181,6 +186,5 @@ setInterval(createHeart,150);
 setInterval(createTeddy,1000);
 setInterval(createWords,1500);
 </script>
-
 </body>
 </html>
